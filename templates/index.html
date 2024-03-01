@@ -1,0 +1,404 @@
+ {% extends "base.html" %}{% block head_title %}News24 Alltimes{% endblock %} {% block content %}
+<div style="width: 1500px; margin: auto; margin-left: auto;" class="body-container  ml-5">
+    <div class="container-fluid paddding mb-5">
+        <div class="row mx-0  justify-content-center ">
+
+            <div class="col-md-6 col-12 paddding animate-box " data-animate-effect="fadeIn">
+
+                <div class="fh5co_suceefh5co_height">
+                    {% if data %} {% with latest_post=data.last %}
+                    <img style="width:700px;" src="{{ latest_post.image.url }}" alt="img" />
+                    <h1><a href="{% url 'details' latest_post.id %}" class="text-decoration-none text-gray-dark">{{ latest_post.headline }}</a></h1>
+
+                    <div class="fh5co_suceefh5co_height_position_absolute_font">
+                        <div class="">
+                            <a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>{{ latest_post.publishing_time }}
+                            </a>
+                        </div>
+                        <div class="">
+                            <p href="" class="text-gray-dark">{{ latest_post.body }}</p>
+                        </div>
+                    </div>
+                    {% endwith %} {% else %}
+                    <p>No posts available.</p>
+                    {% endif %}
+
+
+
+                </div>
+
+
+            </div>
+
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6 col-6 ml-5  paddding animate-box" data-animate-effect="fadeIn">
+                        <div class="fh5co_suceefh5co_height_2">
+                            {% if data %} {% for post in latest_posts %}
+                            <img style="width:350px; height: 150px;" src="{{ post.image.url }}" alt="img" />
+                            <h><a href="{% url 'details' post.id %}" class="text-decoration-none text-gray-dark">{{ post.headline }}</a></h1>
+                                {% endfor %} {% else %}
+                                <p>No posts available.</p>
+                                {% endif %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- cetagor-wise-display -->
+
+<div class="d-flex p-2 m-auto">
+
+    {% if category.1 %}
+    <div class="category p-2 ml-5 ">
+        <h1><a href="{% url 'category_wise_post' category.0.slug %}" class="text-decoration-none font-50 text-gray-dark">{{ category.1.name }}</a> {% comment %} <a href="{% url 'category_wise_post' cat.slug %}" class="text-decoration-none text-dark ga ">{{ cat[0].name }}</a></h1>
+        {% endcomment %} </div>
+    {% endif %}
+
+</div>
+
+<!-- cursel-category -->
+<div class="service-container p-3 justify-content-center mr-5 ">
+
+    <div class="swiffy-slider slider-item-show4 slider-item-reveal slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-item-last-visible">
+        <ul id="service-container" class="slider-container">
+            {% if category.1 %} {% for post in category.1.article_set.all %}
+            <li class="slide-visible">
+                <div class="card shadow h-100">
+                    <div class="ratio ratio-16x9">
+                        {% if post.image %}
+                        <img style="width:300px;" src="{{ post.image.url }}" alt="img" /> {% endif %}
+                    </div>
+                    <div class="card-body ">
+                        <h5 class="card-title"><a href="{% url 'details' post.id %}" class="text-decoration-none text-gray-dark font-weight-bold ">{{ post.headline }}</a></h5>
+                        <h5 class="card-title">{{ post.publishing_time }}</h5>
+                        <p class="card-text  ">{{ post.body|truncatewords:10 }}</p>
+
+                    </div>
+                </div>
+            </li>
+            {% endfor %} {% endif %}
+        </ul>
+
+        <button type="button" class="slider-nav" aria-label="Go left"></button>
+        <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
+
+        <div class="slider-indicators">
+            <button class="" aria-label="Go to slide"></button>
+            <button aria-label="Go to slide"></button>
+            <button aria-label="Go to slide"></button>
+            <button aria-label="Go to slide"></button>
+            <button aria-label="Go to slide" class="active"></button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- cetagor2-wise-display -->
+
+
+<div class="d-flex p-2 m-auto">
+
+    {% if category.4 %}
+    <div class="category p-2 ml-5 ">
+        <h1><a href="{% url 'category_wise_post' category.0.slug %}" class="text-decoration-none font-50 text-gray-dark">{{ category.4.name }}</a> {% comment %} <a href="{% url 'category_wise_post' cat.slug %}" class="text-decoration-none text-dark ga ">{{ cat[0].name }}</a></h1>
+        {% endcomment %} </div>
+    {% endif %}
+
+</div>
+
+<!-- cursel-category -->
+<div class="service-container p-3 justify-content-center mr-5 ">
+
+    <div class="swiffy-slider slider-item-show4 slider-item-reveal slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-item-last-visible">
+        <ul id="service-container" class="slider-container">
+            {% if category.4 %} {% for post in category.4.article_set.all %}
+            <li class="slide-visible">
+                <div class="card shadow h-100">
+                    <div class="ratio ratio-16x9">
+                        {% if post.image %}
+                        <img style="width:300px;" src="{{ post.image.url }}" alt="img" /> {% endif %}
+                    </div>
+                    <div class="card-body ">
+                        <h5 class="card-title"><a href="{% url 'details' post.id %}" class="text-decoration-none text-gray-dark font-weight-bold ">{{ post.headline }}</a></h5>
+                        <h5 class="card-title">{{ post.publishing_time }}</h5>
+                        <p class="card-text  ">{{ post.body|truncatewords:10 }}</p>
+
+                    </div>
+                </div>
+            </li>
+            {% endfor %} {% endif %}
+        </ul>
+
+        <button type="button" class="slider-nav" aria-label="Go left"></button>
+        <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
+
+        <div class="slider-indicators">
+            <button class="" aria-label="Go to slide"></button>
+            <button aria-label="Go to slide"></button>
+            <button aria-label="Go to slide"></button>
+            <button aria-label="Go to slide"></button>
+            <button aria-label="Go to slide" class="active"></button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- cetagor2-wise-display -->
+
+
+<div class="d-flex p-2 m-auto">
+
+    {% if category.5 %}
+    <div class="category p-2 ml-5 ">
+        <h1><a href="{% url 'category_wise_post' category.0.slug %}" class="text-decoration-none font-50 text-gray-dark">{{ category.5.name }}</a> {% comment %} <a href="{% url 'category_wise_post' cat.slug %}" class="text-decoration-none text-dark ga ">{{ cat[0].name }}</a></h1>
+        {% endcomment %} </div>
+    {% endif %}
+
+</div>
+
+<!-- cursel-category -->
+<div class="service-container p-3 justify-content-center mr-5 ">
+
+    <div class="swiffy-slider slider-item-show4 slider-item-reveal slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-item-last-visible">
+        <ul id="service-container" class="slider-container">
+            {% if category.5 %} {% for post in category.5.article_set.all %}
+            <li class="slide-visible">
+                <div class="card shadow h-100">
+                    <div class="ratio ratio-16x9">
+                        {% if post.image %}
+                        <img style="width:300px;" src="{{ post.image.url }}" alt="img" /> {% endif %}
+                    </div>
+                    <div class="card-body ">
+                        <h5 class="card-title"><a href="{% url 'details' post.id %}" class="text-decoration-none text-gray-dark font-weight-bold ">{{ post.headline }}</a></h5>
+                        <h5 class="card-title">{{ post.publishing_time }}</h5>
+                        <p class="card-text  ">{{ post.body|truncatewords:10 }}</p>
+
+                    </div>
+                </div>
+            </li>
+            {% endfor %} {% endif %}
+        </ul>
+
+        <button type="button" class="slider-nav" aria-label="Go left"></button>
+        <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
+
+        <div class="slider-indicators">
+            <button class="" aria-label="Go to slide"></button>
+            <button aria-label="Go to slide"></button>
+            <button aria-label="Go to slide"></button>
+            <button aria-label="Go to slide"></button>
+            <button aria-label="Go to slide" class="active"></button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- cetagor2-wise-display -->
+
+
+<div class="d-flex p-2 m-auto">
+
+    {% if category.2 %}
+    <div class="category p-2 ml-5 ">
+        <h1><a href="{% url 'category_wise_post' category.0.slug %}" class="text-decoration-none font-50 text-gray-dark">{{ category.2.name }}</a> {% comment %} <a href="{% url 'category_wise_post' cat.slug %}" class="text-decoration-none text-dark ga ">{{ cat[0].name }}</a></h1>
+        {% endcomment %} </div>
+    {% endif %}
+
+</div>
+
+<!-- cursel-category -->
+<div class="service-container p-3 justify-content-center mr-5 ">
+
+    <div class="swiffy-slider slider-item-show4 slider-item-reveal slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-item-last-visible">
+        <ul id="service-container" class="slider-container">
+            {% if category.2 %} {% for post in category.2.article_set.all %}
+            <li class="slide-visible">
+                <div class="card shadow h-100">
+                    <div class="ratio ratio-16x9">
+                        {% if post.image %}
+                        <img style="width:300px;" src="{{ post.image.url }}" alt="img" /> {% endif %}
+                    </div>
+                    <div class="card-body ">
+                        <h5 class="card-title"><a href="{% url 'details' post.id %}" class="text-decoration-none text-gray-dark font-weight-bold ">{{ post.headline }}</a></h5>
+                        <h5 class="card-title">{{ post.publishing_time }}</h5>
+                        <p class="card-text  ">{{ post.body|truncatewords:10 }}</p>
+
+                    </div>
+                </div>
+            </li>
+            {% endfor %} {% endif %}
+        </ul>
+
+        <button type="button" class="slider-nav" aria-label="Go left"></button>
+        <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
+
+        <div class="slider-indicators">
+            <button class="" aria-label="Go to slide"></button>
+            <button aria-label="Go to slide"></button>
+            <button aria-label="Go to slide"></button>
+            <button aria-label="Go to slide"></button>
+            <button aria-label="Go to slide" class="active"></button>
+        </div>
+    </div>
+</div>
+
+
+<!-- cetagor3-wise-display -->
+
+
+<div class="d-flex p-2 m-auto">
+
+    {% if category.3 %}
+    <div class="category p-2 ml-5 ">
+        <h1><a href="{% url 'category_wise_post' category.0.slug %}" class="text-decoration-none font-50 text-gray-dark">{{ category.3.name }}</a> {% comment %} <a href="{% url 'category_wise_post' cat.slug %}" class="text-decoration-none text-dark ga ">{{ cat[0].name }}</a></h1>
+        {% endcomment %} </div>
+    {% endif %}
+
+</div>
+
+<!-- cursel-category -->
+<div class="service-container p-3 justify-content-center mr-5 ">
+
+    <div class="swiffy-slider slider-item-show4 slider-item-reveal slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-item-last-visible">
+        <ul id="service-container" class="slider-container">
+            {% if category.3 %} {% for post in category.3.article_set.all %}
+            <li class="slide-visible">
+                <div class="card shadow h-100">
+                    <div class="ratio ratio-16x9">
+                        {% if post.image %}
+                        <img style="width:300px;" src="{{ post.image.url }}" alt="img" /> {% endif %}
+                    </div>
+                    <div class="card-body ">
+                        <h5 class="card-title"><a href="{% url 'details' post.id %}" class="text-decoration-none text-gray-dark font-weight-bold ">{{ post.headline }}</a></h5>
+                        <h5 class="card-title">{{ post.publishing_time }}</h5>
+                        <p class="card-text  ">{{ post.body|truncatewords:10 }}</p>
+
+                    </div>
+                </div>
+            </li>
+            {% endfor %} {% endif %}
+        </ul>
+
+        <button type="button" class="slider-nav" aria-label="Go left"></button>
+        <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
+
+        <div class="slider-indicators">
+            <button class="" aria-label="Go to slide"></button>
+            <button aria-label="Go to slide"></button>
+            <button aria-label="Go to slide"></button>
+            <button aria-label="Go to slide"></button>
+            <button aria-label="Go to slide" class="active"></button>
+        </div>
+    </div>
+</div>
+
+<!-- cetagor6-wise-display -->
+
+
+<div class="d-flex p-2 m-auto">
+
+    {% if category.6 %}
+    <div class="category p-2 ml-5 ">
+        <h1><a href="{% url 'category_wise_post' category.0.slug %}" class="text-decoration-none font-50 text-gray-dark">{{ category.6.name }}</a> {% comment %} <a href="{% url 'category_wise_post' cat.slug %}" class="text-decoration-none text-dark ga ">{{ cat[0].name }}</a></h1>
+        {% endcomment %} </div>
+    {% endif %}
+
+</div>
+
+<!-- cursel-category -->
+<div class="service-container p-3 justify-content-center mr-5 ">
+
+    <div class="swiffy-slider slider-item-show4 slider-item-reveal slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-item-last-visible">
+        <ul id="service-container" class="slider-container">
+            {% if category.6 %} {% for post in category.6.article_set.all %}
+            <li class="slide-visible">
+                <div class="card shadow h-100">
+                    <div class="ratio ratio-16x9">
+                        {% if post.image %}
+                        <img style="width:300px;" src="{{ post.image.url }}" alt="img" /> {% endif %}
+                    </div>
+                    <div class="card-body ">
+                        <h5 class="card-title"><a href="{% url 'details' post.id %}" class="text-decoration-none text-gray-dark font-weight-bold ">{{ post.headline }}</a></h5>
+                        <h5 class="card-title">{{ post.publishing_time }}</h5>
+                        <p class="card-text  ">{{ post.body|truncatewords:10 }}</p>
+
+                    </div>
+                </div>
+            </li>
+            {% endfor %} {% endif %}
+        </ul>
+
+        <button type="button" class="slider-nav" aria-label="Go left"></button>
+        <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
+
+        <div class="slider-indicators">
+            <button class="" aria-label="Go to slide"></button>
+            <button aria-label="Go to slide"></button>
+            <button aria-label="Go to slide"></button>
+            <button aria-label="Go to slide"></button>
+            <button aria-label="Go to slide" class="active"></button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- cetagor7-wise-display -->
+
+
+<div class="d-flex p-2 m-auto">
+
+    {% if category.7 %}
+    <div class="category p-2 ml-5 ">
+        <h1><a href="{% url 'category_wise_post' category.0.slug %}" class="text-decoration-none font-50 text-gray-dark">{{ category.7.name }}</a> {% comment %} <a href="{% url 'category_wise_post' cat.slug %}" class="text-decoration-none text-dark ga ">{{ cat[0].name }}</a></h1>
+        {% endcomment %} </div>
+    {% endif %}
+
+</div>
+
+<!-- cursel-category -->
+<div class="service-container p-3 justify-content-center mr-5 ">
+
+    <div class="swiffy-slider slider-item-show4 slider-item-reveal slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-item-last-visible">
+        <ul id="service-container" class="slider-container">
+            {% if category.7 %} {% for post in category.7.article_set.all %}
+            <li class="slide-visible">
+                <div class="card shadow h-100">
+                    <div class="ratio ratio-16x9">
+                        {% if post.image %}
+                        <img style="width:300px;" src="{{ post.image.url }}" alt="img" /> {% endif %}
+                    </div>
+                    <div class="card-body ">
+                        <h5 class="card-title"><a href="{% url 'details' post.id %}" class="text-decoration-none text-gray-dark font-weight-bold ">{{ post.headline }}</a></h5>
+                        <h5 class="card-title">{{ post.publishing_time }}</h5>
+                        <p class="card-text  ">{{ post.body|truncatewords:10 }}</p>
+
+                    </div>
+                </div>
+            </li>
+            {% endfor %} {% endif %}
+        </ul>
+
+        <button type="button" class="slider-nav" aria-label="Go left"></button>
+        <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
+
+        <div class="slider-indicators">
+            <button class="" aria-label="Go to slide"></button>
+            <button aria-label="Go to slide"></button>
+            <button aria-label="Go to slide"></button>
+            <button aria-label="Go to slide"></button>
+            <button aria-label="Go to slide" class="active"></button>
+        </div>
+    </div>
+</div>
+{%endblock%}

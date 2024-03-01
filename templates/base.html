@@ -1,0 +1,221 @@
+{%load static%}
+<!DOCTYPE html>
+<!--
+	24 News by FreeHTML5.co
+	Twitter: https://twitter.com/fh5co
+	Facebook: https://fb.com/fh5co
+	URL: https://freehtml5.co
+-->
+
+<html lang="en" class="no-js">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <title>24 News — Free Website Template, Free HTML5 Template by FreeHTML5.co</title> -->
+    <link href="{% static 'css/media_query.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{%static 'css/owl.theme.default.css' %}" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'css/style_1.css" rel="stylesheet' %}" type="text/css" />
+
+    <!-- Modernizr JS -->
+    <script src="{% static 'js/modernizr-3.5.0.min.js' %}"></script>
+    <!-- carosel -->
+    <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
+
+    <title>{%block head_title%}News24 Alltime{%endblock%}</title>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+
+
+                <!-- <div class="d-inline-block text-center"><img src="images/country.png" alt="img" class="fh5co_country_width" /></div> -->
+                <div class="d-inline-block text-center dd_position_relative ">
+                    <select class="form-control fh5co_text_select_option">
+                        <option>English </option>
+                        <option>French </option>
+                        <option>German </option>
+                        <option>Spanish </option>
+                    </select>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="container-fluid bg-faded fh5co_padd_mediya padding_786">
+        <div class="container padding_786">
+            <nav class="navbar navbar-toggleable-md navbar-light ">
+                <button class="navbar-toggler navbar-toggler-right mt-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
+                <a class="navbar-brand" href="#"><img src="static/images/logo.png" alt="img" class="mobile_logo_width" /></a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    <div class="category d-flex">
+                        {% for cat in category %}
+                        <a href="{% url 'home_category' cat.slug %}" class="text-decoration-none m-2 text-dark ga">{{ cat.name }}</a> {% endfor %}
+                    </div>
+
+
+                    <!-- <ul class="navbar-nav mr-auto"> -->
+                    <!-- <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Latest <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="blog.html">Politics <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="single.html">Crime <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="single.html">Sports <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="single.html">Entertainment <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="single.html">Jobs <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="single.html">Business <span class="sr-only">(current)</span></a>
+                        </li>
+
+
+                        <li class="nav-item ">
+                            <a class="nav-link" href="Contact_us.html">Tech <span class="sr-only">(current)</span></a>
+                        </li> -->
+                    <!-- </ul> -->
+                </div>
+                <div class="button-container ">
+                    <form class="d-flex" role="search">
+                        {% if user.is_authenticated %}
+
+
+                        <div class="d-flex" role="search">
+                            <button type="button" onclick="window.location.href='{% url 'profile'%}'" class="btn btn-outline-success">Profile</button>
+
+                        </div>
+                        <div class="d-flex" role="search">
+                            <button type="button" onclick="window.location.href='{% url 'logout' %}'" class="btn btn-outline-danger">Logout</button>
+
+                        </div>
+
+
+                        {% else %}
+                        <div class="d-flex" role="search">
+                            <button type="button" onclick="window.location.href='{% url 'login' %}'" class="btn btn-outline-success">Login</button>
+                            <button type="button" onclick="window.location.href='{% url 'register' %}'" class="btn btn-outline-success">Register</button>
+                        </div>
+
+                        {% endif %}
+                    </form>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    {%block content%} {% endblock %}
+
+
+    <div class="container-fluid fh5co_footer_bg pb-3 p-5 ">
+        <hr>
+        <div class="container animate-box">
+            <div class="row">
+
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div class="footer_main_title py-3"> About</div>
+                    <div class="footer_sub_about pb-3"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                        specimen book.
+                    </div>
+                    <div class="footer_mediya_icon">
+                        <div class="text-center d-inline-block">
+                            <a class="fh5co_display_table_footer">
+                                <div class="fh5co_verticle_middle"><i class="fa fa-linkedin"></i></div>
+                            </a>
+                        </div>
+                        <div class="text-center d-inline-block">
+                            <a class="fh5co_display_table_footer">
+                                <div class="fh5co_verticle_middle"><i class="fa fa-google-plus"></i></div>
+                            </a>
+                        </div>
+                        <div class="text-center d-inline-block">
+                            <a class="fh5co_display_table_footer">
+                                <div class="fh5co_verticle_middle"><i class="fa fa-twitter"></i></div>
+                            </a>
+                        </div>
+                        <div class="text-center d-inline-block">
+                            <a class="fh5co_display_table_footer">
+                                <div class="fh5co_verticle_middle"><i class="fa fa-facebook"></i></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 col-lg-2">
+                    <div class="footer_main_title py-3"> Category</div>
+                    <ul class="footer_menu">
+                        <div class="category">
+                            {% for cat in category %}
+                            <a href="{% url 'home_category' cat.slug %}" class="text-decoration-none m-2 text-dark ga">{{ cat.name }}</a> {% endfor %}
+                        </div>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-5 col-lg-3 position_footer_relative">
+                    <div class="footer_main_title py-3"> Most Viewed Posts</div>
+                    <div class="footer_makes_sub_font"> Feb 29, 2024</div>
+                    <a href="#" class="footer_post pb-4"> Success is not a good teacher failure makes you humble </a>
+                    <div class="footer_makes_sub_font"> Feb 29, 2024</div>
+                    <a href="#" class="footer_post pb-4"> Success is not a good teacher failure makes you humble </a>
+                    <div class="footer_makes_sub_font"> Feb 29, 2024</div>
+                    <a href="#" class="footer_post pb-4"> Success is not a good teacher failure makes you humble </a>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="container-fluid fh5co_footer_right_reserved">
+        <div class="container">
+            <div class="row  ">
+                <div class="col-12 col-md-6 py-4 Reserved"> © Copyright 2018, All rights reserved. Design by <a href="https://freehtml5.co" title="Free HTML5 Bootstrap templates">News24_alltime</a>. </div>
+                <div class="col-12 col-md-6 spdp_right py-4">
+                    <div class="category">
+                        {% for cat in category %}
+                        <a href="{% url 'home_category' cat.slug %}" class="text-decoration-none m-2 text-dark ga">{{ cat.name }}</a> {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="gototop js-top">
+            <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <!--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <!-- Waypoints -->
+        <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+        <!-- Main -->
+        <script src="{% static 'js/main.js' %}"></script>
+        <!-- carosel -->
+        <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+
+</body>
+
+</html>

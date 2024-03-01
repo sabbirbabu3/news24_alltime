@@ -1,0 +1,46 @@
+<div style="width: 800px; margin: auto;" class="details-container">
+    <div class="d-flex p-5 m-auto">
+
+        {% for cat in category %}
+        <div class="category p-2 ">
+            <a href="{% url 'category_wise_post' cat.slug %}" class="text-decoration-none text-dark ga ">{{ cat.name }}</a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="col-sm-3 justify-content-center">
+        <div class="card mx-2 ">
+            <div style="width: 700px;" class="card-body w ">
+                {% if object.image %}
+                <img style="width: 700px;" src="{{ object.image.url }}" alt="img" /> {% endif %}
+                <h5 class="card-title">{{ object.headline }}</h5>
+                <h5 class="card-title">{{ object.publishing_time }}</h5>
+                <p class="card-text">{{ object.body }}</p>
+                <p>Category: {% for cat in object.category.all %} {{ cat.name }} {% endfor %}
+                </p>
+                Total Ratings: {{ ratings | length }}
+                <p class="card-text">Ratings:</p>
+                <ul>
+                    {% for rating in ratings %}
+                    <li>{{ rating.rating }} - {{ rating.created_at }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+
+            {% for comment in ratings %}
+            <p style="margin-left:30px;">{{ comment.rating }} </p>
+            {{comment.created_at}} {% endfor %}
+        </div>
+    </div>
+
+    <form style="" method="post">
+        {% comment %}
+        <h1 style="color: blue">This is post page</h1> {% endcomment %} {% csrf_token %} {{ rating_form }}
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+</div>
