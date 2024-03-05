@@ -2,10 +2,10 @@
 <div class="d-flex flex-wrap justify-content-center px-5 pt-5">
     {% for post in data %}
     <div class="col-sm-3 ">
-        <div class="card mx-2">
+        <div class="card mx-2 p-1">
             <div class="card-body">
                 {% if post.image %}
-                <img style="width:320px;" src="{{ post.image.url }}" alt="img" /> {% endif %}
+                <img style="width:300px;" src="{{ post.image.url }}" alt="img" /> {% endif %}
                 <h5 class="card-title"><a href="{% url 'details' post.id %}" class="text-decoration-none text-gray-dark font-weight-bold ">{{ post.headline }}</a></h5>
                 <p class="card-text">{{post.body|truncatewords:10}}</p>
                 <p>Author: {{post.author.first_name}}</p>

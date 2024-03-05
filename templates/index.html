@@ -35,11 +35,15 @@
                     <div class="col-md-6 col-6 ml-5  paddding animate-box" data-animate-effect="fadeIn">
                         <div class="fh5co_suceefh5co_height_2">
                             {% if data %} {% for post in latest_posts %}
-                            <img style="width:350px; height: 150px;" src="{{ post.image.url }}" alt="img" />
-                            <h><a href="{% url 'details' post.id %}" class="text-decoration-none text-gray-dark">{{ post.headline }}</a></h1>
-                                {% endfor %} {% else %}
-                                <p>No posts available.</p>
-                                {% endif %}
+                            <div style="width:550px; height: 200px;" class="box-container">
+                                <img style="width:530px; height: 150px;" src="{{ post.image.url }}" alt="img" />
+                                <h4><a href="{% url 'details' post.id %}" class="text-decoration-none text-gray-dark">{{ post.headline }}</a></h4>
+                            </div>
+
+
+                            {% endfor %} {% else %}
+                            <p>No posts available.</p>
+                            {% endif %}
 
                         </div>
 
@@ -69,11 +73,11 @@
     <div class="swiffy-slider slider-item-show4 slider-item-reveal slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-item-last-visible">
         <ul id="service-container" class="slider-container">
             {% if category.1 %} {% for post in category.1.article_set.all %}
-            <li class="slide-visible">
-                <div class="card shadow h-100">
+            <li class="slide-visible ">
+                <div class="card shadow h-100 p-1">
                     <div class="ratio ratio-16x9">
                         {% if post.image %}
-                        <img style="width:300px;" src="{{ post.image.url }}" alt="img" /> {% endif %}
+                        <img style="width:280px;" src="{{ post.image.url }}" alt="img" /> {% endif %}
                     </div>
                     <div class="card-body ">
                         <h5 class="card-title"><a href="{% url 'details' post.id %}" class="text-decoration-none text-gray-dark font-weight-bold ">{{ post.headline }}</a></h5>
@@ -121,10 +125,10 @@
         <ul id="service-container" class="slider-container">
             {% if category.4 %} {% for post in category.4.article_set.all %}
             <li class="slide-visible">
-                <div class="card shadow h-100">
+                <div class="card shadow h-100  p-1">
                     <div class="ratio ratio-16x9">
                         {% if post.image %}
-                        <img style="width:300px;" src="{{ post.image.url }}" alt="img" /> {% endif %}
+                        <img style="width:280px;" src="{{ post.image.url }}" alt="img" /> {% endif %}
                     </div>
                     <div class="card-body ">
                         <h5 class="card-title"><a href="{% url 'details' post.id %}" class="text-decoration-none text-gray-dark font-weight-bold ">{{ post.headline }}</a></h5>
@@ -172,10 +176,10 @@
         <ul id="service-container" class="slider-container">
             {% if category.5 %} {% for post in category.5.article_set.all %}
             <li class="slide-visible">
-                <div class="card shadow h-100">
+                <div class="card shadow h-100  p-1">
                     <div class="ratio ratio-16x9">
                         {% if post.image %}
-                        <img style="width:300px;" src="{{ post.image.url }}" alt="img" /> {% endif %}
+                        <img style="width:280px;" src="{{ post.image.url }}" alt="img" /> {% endif %}
                     </div>
                     <div class="card-body ">
                         <h5 class="card-title"><a href="{% url 'details' post.id %}" class="text-decoration-none text-gray-dark font-weight-bold ">{{ post.headline }}</a></h5>
@@ -223,10 +227,10 @@
         <ul id="service-container" class="slider-container">
             {% if category.2 %} {% for post in category.2.article_set.all %}
             <li class="slide-visible">
-                <div class="card shadow h-100">
+                <div class="card shadow h-100  p-1">
                     <div class="ratio ratio-16x9">
                         {% if post.image %}
-                        <img style="width:300px;" src="{{ post.image.url }}" alt="img" /> {% endif %}
+                        <img style="width:280px;" src="{{ post.image.url }}" alt="img" /> {% endif %}
                     </div>
                     <div class="card-body ">
                         <h5 class="card-title"><a href="{% url 'details' post.id %}" class="text-decoration-none text-gray-dark font-weight-bold ">{{ post.headline }}</a></h5>
@@ -273,10 +277,10 @@
         <ul id="service-container" class="slider-container">
             {% if category.3 %} {% for post in category.3.article_set.all %}
             <li class="slide-visible">
-                <div class="card shadow h-100">
+                <div class="card shadow h-100  p-1">
                     <div class="ratio ratio-16x9">
                         {% if post.image %}
-                        <img style="width:300px;" src="{{ post.image.url }}" alt="img" /> {% endif %}
+                        <img style="width:280px;" src="{{ post.image.url }}" alt="img" /> {% endif %}
                     </div>
                     <div class="card-body ">
                         <h5 class="card-title"><a href="{% url 'details' post.id %}" class="text-decoration-none text-gray-dark font-weight-bold ">{{ post.headline }}</a></h5>
@@ -322,10 +326,10 @@
         <ul id="service-container" class="slider-container">
             {% if category.6 %} {% for post in category.6.article_set.all %}
             <li class="slide-visible">
-                <div class="card shadow h-100">
+                <div class="card shadow h-100  p-1">
                     <div class="ratio ratio-16x9">
                         {% if post.image %}
-                        <img style="width:300px;" src="{{ post.image.url }}" alt="img" /> {% endif %}
+                        <img style="width:280px;" src="{{ post.image.url }}" alt="img" /> {% endif %}
                     </div>
                     <div class="card-body ">
                         <h5 class="card-title"><a href="{% url 'details' post.id %}" class="text-decoration-none text-gray-dark font-weight-bold ">{{ post.headline }}</a></h5>
@@ -373,10 +377,10 @@
         <ul id="service-container" class="slider-container">
             {% if category.7 %} {% for post in category.7.article_set.all %}
             <li class="slide-visible">
-                <div class="card shadow h-100">
+                <div class="card shadow h-100  p-1">
                     <div class="ratio ratio-16x9">
                         {% if post.image %}
-                        <img style="width:300px;" src="{{ post.image.url }}" alt="img" /> {% endif %}
+                        <img style="width:280px;" src="{{ post.image.url }}" alt="img" /> {% endif %}
                     </div>
                     <div class="card-body ">
                         <h5 class="card-title"><a href="{% url 'details' post.id %}" class="text-decoration-none text-gray-dark font-weight-bold ">{{ post.headline }}</a></h5>
