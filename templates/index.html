@@ -1,7 +1,57 @@
- {% extends "base.html" %}{% block head_title %}News24 Alltimes{% endblock %} {% block content %}
-<div style="width: 1500px; margin: auto; margin-left: auto;" class="body-container  ml-5">
+{% extends "base.html" %} {% block head_title %}News24 Alltimes{% endblock %} {% block content %}
+<style>
+    @media only screen and (max-width: 768px) {
+        .paddding {
+            padding: 10px;
+        }
+        .fh5co_suceefh5co_height {
+            height: auto !important;
+        }
+        .fh5co_suceefh5co_height_position_absolute_font {
+            position: relative !important;
+            top: initial !important;
+            left: initial !important;
+            margin-top: 10px;
+        }
+        .box-container {
+            width: 100%;
+            height: auto;
+        }
+        .category {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .service-container {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .service-container .swiper-container {
+            width: 100%;
+        }
+        .service-container .swiper-slide {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .service-container .card-body {
+            text-align: left;
+        }
+        .d-flex {
+            display: block;
+        }
+        .mr-5 {
+            margin-right: auto;
+        }
+        .ml-5 {
+            margin-left: auto;
+        }
+    }
+</style>
+<div style="width: 1500px; margin: auto; margin-left: auto;" class="body-container ml-5">
     <div class="container-fluid paddding mb-5">
-        <div class="row mx-0  justify-content-center ">
+        <div class="row mx-0 justify-content-center ">
 
             <div class="col-md-6 col-12 paddding animate-box " data-animate-effect="fadeIn">
 
@@ -32,7 +82,7 @@
 
             <div class="col-md-6">
                 <div class="row">
-                    <div class="col-md-6 col-6 ml-5  paddding animate-box" data-animate-effect="fadeIn">
+                    <div class="col-md-6 col-6 ml-5 paddding animate-box" data-animate-effect="fadeIn">
                         <div class="fh5co_suceefh5co_height_2">
                             {% if data %} {% for post in latest_posts %}
                             <div style="width:550px; height: 200px;" class="box-container">
@@ -102,7 +152,6 @@
         </div>
     </div>
 </div>
-
 
 
 <!-- cetagor2-wise-display -->
@@ -405,4 +454,4 @@
         </div>
     </div>
 </div>
-{%endblock%}
+{% endblock %}
