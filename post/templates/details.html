@@ -1,3 +1,4 @@
+{% extends "base.html" %}{% block head_title %}details{% endblock %} {% block content %}
 <div style="width: 800px; margin: auto;" class="details-container">
     <div class="d-flex p-5 m-auto">
 
@@ -43,4 +44,4 @@
         <h1 style="color: blue">This is post page</h1> {% endcomment %} {% csrf_token %} {{ rating_form }}
         <button class="btn btn-primary" type="submit">Submit</button>
     </form>
-</div>
+</div>{%endblock%}

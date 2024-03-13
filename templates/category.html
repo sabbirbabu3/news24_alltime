@@ -2,7 +2,7 @@
 <div class="d-flex flex-wrap justify-content-center px-5 pt-5">
     {% for post in data %}
     <div class="col-sm-3 ">
-        <div class="card mx-2 p-1">
+        <div style="background-color: #bdc9ca;" class="card mx-2 p-1">
             <div class="card-body">
                 {% if post.image %}
                 <img style="width:300px;" src="{{ post.image.url }}" alt="img" /> {% endif %}

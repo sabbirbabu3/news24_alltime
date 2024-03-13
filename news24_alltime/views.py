@@ -20,3 +20,9 @@ def home_Category(request, category_slug=None):
     categories = Categories.objects.all()
     latest_posts = data.order_by('-publishing_time')[:3]
     return render(request, 'category.html', {'data': data, 'category': categories, 'latest_posts': latest_posts})
+
+def contact(request):
+    return render(request, 'contact.html')
+
+def about_us(request):
+    return render(request, 'about.html')

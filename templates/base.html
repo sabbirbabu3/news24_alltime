@@ -25,44 +25,50 @@
 
 </head>
 
-<body>
+<body style="background-color:#ffffff ;">
 
 
-    <div class="container-fluid bg-faded fh5co_padd_mediya padding_786">
+    <div class="container-fluid bg-inverse fh5co_padd_mediya padding_786 ">
         <div class="container padding_786">
             <!-- Navbar -->
-            <nav class="navbar navbar-toggleable-md navbar-light">
+            <nav class="navbar navbar-toggleable-md navbar-light ">
                 <button class="navbar-toggler navbar-toggler-right mt-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="fa fa-bars"></span>
                 </button>
 
                 <!-- Navbar content -->
+                <a href="{% url 'home' %}" class="mr-5">
+                    <img style="width: 90px;" src="{% static 'final.png' %}" alt="">
+                </a>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <img style="width: 0px;" src="{% static 'logo.png'%}" alt="">
+
                     <!-- Main navigation links -->
-                    <a class="nav-link" href="{% url 'home' %}">Home</a>
-                    <div class="category d-flex">
+                    <h6><a class="nav-link text-white" href="{% url 'home' %}">Home</a></h6>
+                    <div class="category d-flex m-2">
                         <!-- Category links -->
                         {% for cat in category %}
-                        <a href="{% url 'home_category' cat.slug %}" class="text-decoration-none m-2 text-dark ga">{{ cat.name }}</a> {% endfor %}
+                        <h6><a target="_blank" href="{% url 'home_category' cat.slug %}" class="text-decoration-none mt-4 p-2 text-white ga">{{ cat.name }}</a></h6> {% endfor %}
                     </div>
                 </div>
+                <h6><a class="nav-link text-white" href="{% url 'contact' %}">Contact</a></h6>
+                <h6><a class="nav-link text-white" href="{% url 'about' %}">About</a></h6>
                 <!-- Button container -->
-                <div class="button-container">
+                <div class="button-container mb-1">
                     <form class="d-flex" role="search">
                         {% if user.is_authenticated %}
                         <!-- Authenticated user buttons -->
                         <div class="d-flex" role="search">
-                            <button type="button" onclick="window.location.href='{% url 'profile'%}'" class="btn btn-outline-success">Profile</button>
+                            <button type="button" onclick="window.location.href='{% url 'profile'%}'" class="btn btn-outline-success text-white border-0">Profile</button>
                         </div>
                         <div class="d-flex" role="search">
-                            <button type="button" onclick="window.location.href='{% url 'logout' %}'" class="btn btn-outline-danger">Logout</button>
+                            <button type="button" onclick="window.location.href='{% url 'logout' %}'" class="btn btn-outline-danger ">Logout</button>
                         </div>
                         {% else %}
                         <!-- Non-authenticated user buttons -->
                         <div class="d-flex" role="search">
-                            <button type="button" onclick="window.location.href='{% url 'login' %}'" class="btn btn-outline-success">Login</button>
-                            <button type="button" onclick="window.location.href='{% url 'register' %}'" class="btn btn-outline-success">Register</button>
+                            <button type="button" onclick="window.location.href='{% url 'login' %}'" class="btn btn-outline-success ">Login</button>
+                            <button type="button" onclick="window.location.href='{% url 'register' %}'" class="btn btn-outline-primary ">Register</button>
                         </div>
                         {% endif %}
                     </form>
@@ -74,7 +80,7 @@
     {%block content%} {% endblock %}
 
 
-    <div class="container-fluid fh5co_footer_bg pb-3 p-5 ">
+    <div style="background-color: #d2cfcf; width: 1500px;" class="container-fluid ">
         <hr>
         <div class="container animate-box">
             <div class="row">
@@ -130,27 +136,29 @@
             </div>
 
         </div>
-    </div>
-
-
-    <div class="container-fluid fh5co_footer_right_reserved">
-        <div class="container">
-            <div class="row  ">
-                <div class="col-12 col-md-6 py-4 Reserved"> © Copyright 2018, All rights reserved. Design by <a href="https://freehtml5.co" title="Free HTML5 Bootstrap templates">News24_alltime</a>. </div>
-                <div class="col-12 col-md-6 spdp_right py-4">
-                    <div class="category">
-                        {% for cat in category %}
-                        <a href="{% url 'home_category' cat.slug %}" class="text-decoration-none m-2 text-dark ga">{{ cat.name }}</a> {% endfor %}
+        <div class="container-fluid fh5co_footer_right_reserved">
+            <div class="container">
+                <div class="row  ">
+                    <div class="col-12 col-md-6 py-4 Reserved"> © Copyright 2018, All rights reserved. Design by <a href="https://freehtml5.co" title="Free HTML5 Bootstrap templates">News24_alltime</a>. </div>
+                    <div class="col-12 col-md-6 spdp_right py-4">
+                        <div class="category">
+                            {% for cat in category %}
+                            <a href="{% url 'home_category' cat.slug %}" class="text-decoration-none m-2 text-dark ga">{{ cat.name }}</a> {% endfor %}
+                        </div>
                     </div>
+
                 </div>
 
             </div>
 
+            <div class="gototop js-top">
+                <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+            </div>
         </div>
 
-        <div class="gototop js-top">
-            <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
-        </div>
+
+
+
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- <script src="{% static 'js/owl.carousel.min.js' %}"></script> -->

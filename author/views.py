@@ -6,6 +6,7 @@ from django.contrib.auth import login,logout
 from .forms import UserRastirationForm
 from django.contrib import messages
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 # Create your views here.
 from django.views.generic import CreateView
@@ -28,29 +29,31 @@ def user_transaction_email(user,subject,template):
 
 
 class UsercreationView(CreateView):
-    form_class=UserRastirationForm
-    template_name='register.html'
-    success_url=reverse_lazy('register')
+    form_class = UserRastirationForm
+    template_name = 'register.html'
+    success_url = reverse_lazy('register')
+
     def form_valid(self, form):
-        user=form.save()
+        user = form.save()
         # login( self.request, user)
         messages.success(
             self.request,
-            f'Your ragistartion request successful please confirm your registration form your email'
+            f'Your registration request was successful. Please confirm your registration from your email.'
         )
 
-        user_transaction_email(self.request.user, "registration Massage","login_email.html" )
+        user_transaction_email(user, "Registration Massage", "login_email.html")
         return super().form_valid(form)
+
     
-    
-class UserLoginView(LoginView):
+  
+class UserLoginView( LoginView):
     template_name = 'login.html'
     def get_success_url(self):
         messages.success(
             self.request,
             f'login successfull'
         )
-        return reverse_lazy('profile')
+        return reverse_lazy('home')
 
 def user_logout_view(request):
     logout(request)
