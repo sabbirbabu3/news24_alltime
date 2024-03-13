@@ -49,49 +49,64 @@
         }
     }
 </style>
-<div class="font-container" style="width: 100%; max-width: 1500px; margin: 0 auto;">
-    <div class="body-container ml-5 mt-4">
-        <div class="container-fluid padding mb-5">
-            <div class="row justify-content-center">
-                <div class="col-md-6 col-12 paddding animate-box" data-animate-effect="fadeIn">
+<div class="font-container">
+    <div style="width: 1500px; margin: auto; margin-left: auto;" class="body-container ml-5 mt-4">
+        <div class="container-fluid paddding mb-5">
+            <div class="row mx-0 justify-content-center ">
+
+                <div class="col-md-6 col-12 paddding animate-box " data-animate-effect="fadeIn">
+
                     <div class="fh5co_suceefh5co_height">
                         {% if data %} {% with latest_post=data.last %}
                         <img style="width:700px;" src="{{ latest_post.image.url }}" alt="img" />
                         <h1><a target="_blank" href="{% url 'details' latest_post.id %}" class="text-decoration-none text-gray-dark">{{ latest_post.headline }}</a></h1>
+
                         <div class="fh5co_suceefh5co_height_position_absolute_font">
-                            <div>
-                                <a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>{{ latest_post.publishing_time }}</a>
+                            <div class="">
+                                <a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>{{ latest_post.publishing_time }}
+                                </a>
                             </div>
-                            <div>
-                                <p class="text-gray-dark">{{ latest_post.body }}</p>
+                            <div class="">
+                                <p href="" class="text-gray-dark">{{ latest_post.body }}</p>
                             </div>
                         </div>
                         {% endwith %} {% else %}
                         <p>No posts available.</p>
                         {% endif %}
+
+
+
                     </div>
+
+
                 </div>
+
                 <div class="col-md-6">
-                    <div class="row">
+                    <div class="row ">
                         <div class="col-md-6 col-6 ml-5 paddding animate-box" data-animate-effect="fadeIn">
-                            <div class="fh5co_suceefh5co_height_2">
+                            <div style="gap: 20px;" class="fh5co_suceefh5co_height_2  ">
                                 {% if data %} {% for post in latest_posts %}
-                                <div class="box-container mt-3">
+                                <div style="width:550px; height: 200px;" class="box-container   mt-3">
                                     <img style="width:530px; height: 150px;" src="{{ post.image.url }}" alt="img" />
                                     <h4><a target="_blank" href="{% url 'details' post.id %}" class="text-decoration-none text-gray-dark">{{ post.headline }}</a></h4>
                                 </div>
+
+
                                 {% endfor %} {% else %}
                                 <p>No posts available.</p>
                                 {% endif %}
+
                             </div>
+
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
+</div>
 <!-- cetagor-wise-display -->
 
 <div class="d-flex p-2 m-auto">
@@ -440,5 +455,7 @@
             <button aria-label="Go to slide" class="active"></button>
         </div>
     </div>
+</div>
+
 </div>
 {% endblock %}
